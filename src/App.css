@@ -1,38 +1,162 @@
-.App {
-  text-align: center;
+header nav img {
+    width: 60px;    
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header nav span {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+header nav {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    justify-content: center;
+    gap: 5px; 
+    box-shadow: 0px 0px 4px gray;
+
+}
+
+form {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+form input {
+    border-radius: 6px;
+    border: 1px solid #848484;
+    margin-left: 20px;
+    /* padding: 15px 10px; */
+    box-shadow: 0px 0px 4px gray;
+    flex-grow: 1;
+    min-width: 150px;
+    max-width: 400px;
+    font-family: Poppins;
+}
+
+form input::placeholder {
+    padding: 10px;
+}
+
+form button {
+    font-family: Poppins;
+    border-radius: 6px;
+    padding: 15px 25px;
+    margin-right: 20px;
+
+    box-shadow: 0px 0px 2px rgb(228, 228, 228);
+    border: 1px solid #bcbcbc;
+    background-color: black;
+    color: white;
+
+}
+
+/* form button::before {
+    content: '+';
+    margin-right: 5px;
+} */
+
+.grad-list {
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 80px;
+}
+
+.one-li {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;           
+    border-bottom: 1px solid #ccc;
+    margin-left: 30px;
+}
+
+ul button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #ff4d4f;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.ClaudeSend {
+    background-color: rgb(218, 218, 218);
+    margin: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    /* flex-grow: 1;
+    min-width: 200px;
+    max-width: 600px;  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ClaudeSend button {
+    font-family: Poppins;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-left: 30px;
+    box-shadow: 0px 0px 2px rgb(228, 228, 228);
+    border: 1px solid #a2a2a2;
+    background-color: rgb(182, 94, 0);
+    color: white;
+}
+
+
+
+button {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    /* transition: background 0.3s; */
+
   }
+  
+button:hover:not(:disabled) {
+transform: scale(1.03);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button:disabled {
+background-color: #ccc;
+color: #666;
+cursor: not-allowed;
+transform: none;
 }
 
-.App-link {
-  color: #61dafb;
+
+.ClaudeSend button {
+    position: relative;
+    overflow: hidden; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ClaudeSend button.loading .btn-text {
+    visibility: hidden;
 }
+
+.ClaudeSend button.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    margin: -0.5rem 0 0 -0.5rem;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+  
