@@ -1,12 +1,12 @@
 import React from 'react';
 import { getRecipe } from '../huggingFace';
+import ReactMarkdown from "react-markdown";
 
 function RequestRecipe({ listed }) {
   const [loading, setLoading] = React.useState(false);
   const [recipeData, setRecipeData] = React.useState(null);
 
   const handleClick = async () => {
-    console.log('enter')
     setLoading(true);
     try {
       const result = await getRecipe(listed);
@@ -33,14 +33,14 @@ function RequestRecipe({ listed }) {
       )}
 
       {recipeData && (
-        <div className="recipe-output">
-          {typeof recipeData === 'string' ? (
-            <pre>{recipeData}</pre>
-          ) : (
-            <pre>{JSON.stringify(recipeData, null, 2)}</pre>
-          )}
+        <div className='recipe-container'>
+          <h1>Taste the magic of AI cooking.</h1>
+            <ReactMarkdown>
+              {recipeData}
+            </ReactMarkdown>
         </div>
-      )}
+        )
+      }
     </>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import RequestRecipe from './RequestRecipe'
 
 function Main() {
-  let [listed, setListed] = useState([])
+  let [listed, setListed] = useState(['eggs', 'anything', 'meat'])
 
 
   function addToList(newItem) {
@@ -39,8 +39,8 @@ function Main() {
             <h2>Ingredients on hand:</h2>
               {listed.map((ing, index) =>
                 (
-                  <div className='one-li'>
-                    <li key={index}>{ing}</li>
+                  <div key={index} className='one-li'>
+                    <li >{ing}</li>
                     <button onClick={() => {removeElem(index)}}>❌</button>
                   </div>
                 ))} 
