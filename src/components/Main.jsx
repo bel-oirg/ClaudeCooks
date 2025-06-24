@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import RequestRecipe from './RequestRecipe'
 
 function Main() {
   let [listed, setListed] = useState([])
@@ -18,15 +19,6 @@ function Main() {
 
   function removeElem(indexToRemove) {
     setListed(listed.filter((_, index) => index !== indexToRemove))
-  }
-
-
-
-  const [loading, setLoading] = useState(false)
-
-  const handleClick = () => {
-    setLoading(true)
-    setTimeout(() => setLoading(false), 5000)
   }
 
   return (
@@ -57,22 +49,7 @@ function Main() {
         }
       </ul>
 
-      {listed.length >= 0 ? 
-      <div className='ClaudeSend'>
-
-        <div>
-          <h2>Ready for a recipe?</h2>
-          <p>Generate a recipe from the list of ingredients.</p>
-        </div>
-
-        <button onClick={handleClick} className={loading ? 'loading' : ''}>
-          <span className='btn-text'>Get a recipe</span>
-        </button>
-
-      </div>
-
-      : null
-      }
+      <RequestRecipe listed={listed}/>
 
     </>
   )

@@ -1,8 +1,12 @@
 import React from 'react'
+import { getRecipe } from '../huggingFace'
 
-function Recipe() {
+async function Recipe({listed}) {
+
   return (
-    <div>Recipe</div>
+    <>
+      {await getRecipe(listed)}
+    </>
   )
 }
 

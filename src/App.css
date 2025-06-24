@@ -55,10 +55,6 @@ form button {
 
 }
 
-/* form button::before {
-    content: '+';
-    margin-right: 5px;
-} */
 
 .grad-list {
     padding: 10px;
