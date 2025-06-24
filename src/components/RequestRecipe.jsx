@@ -5,15 +5,29 @@ import ReactMarkdown from "react-markdown";
 function RequestRecipe({ listed }) {
   const [loading, setLoading] = React.useState(false);
   const [recipeData, setRecipeData] = React.useState(null);
+  const recipeRef = React.useRef(null)
 
   const handleClick = async () => {
     setLoading(true);
+
     try {
       const result = await getRecipe(listed);
       setRecipeData(result);
-    } catch (error) {
+
+
+      setTimeout(() => {
+        if (recipeRef.current) {
+          recipeRef.current.scrollIntoView({ behavior: 'smooth' }); // ✅ Smooth scroll
+        }
+      }, 100);
+
+    }
+    catch (error)
+    {
       console.error('Error fetching recipe:', error);
-    } finally {
+    }
+    finally
+    {
       setLoading(false);
     }
   };
@@ -33,9 +47,9 @@ function RequestRecipe({ listed }) {
       )}
 
       {recipeData && (
-        <div className='recipe-container'>
+        <div ref={recipeRef} className='recipe-container'>
           <h1>Taste the magic of AI cooking.</h1>
-            <ReactMarkdown>
+            <ReactMarkdown >
               {recipeData}
             </ReactMarkdown>
         </div>
